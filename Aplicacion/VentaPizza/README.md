@@ -1,23 +1,23 @@
-#EXAMEN 
-## VentaPizza
+# EXAMEN 
+# VentaPizza
 
-#login
+# login
 ingresar con este usuario
 
 correo : jonathan.pachacama@epn.edu.ec
 
 password: 12345
-#crear nueva pizza
+# crear nueva pizza
 ```
 http://localhost:1337/Pizza/create?nombrePizza=<nombreDeLaPizza>
 ```
 
-#crear nuevo ingrediente
+# crear nuevo ingrediente
 ```
 http://localhost:1337/Ingredientes/create?nombreIngrediente=<nombreDelIngrediente>
 ```
 
-  #crear nuevo Usuario
+# crear nuevo Usuario
 ```
 http://localhost:1337/Usuario/create?nombres=<nuevoNombre>&apellidos=<nuevoApellido>&correo=<nuevoCorreo>&password=<nuevoPassword>
 ```
