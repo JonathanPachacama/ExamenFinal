@@ -2,3 +2,7 @@
 .idea/modules.xml
 .idea/workspace.xml
 .idea/vcs.xml
+.idea/typescript-compiler.xml
+.idea/typescript-compiler.xml
+*.xml
+.idea/typescript-compiler.xml
