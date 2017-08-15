@@ -1,28 +1,41 @@
 module.exports = {
     homepage: function (req, res) {
-        var parametros = req.allParams();
-        if (!parametros.busqueda) {
-            parametros.busqueda = '';
-        }
-        //let where = {};
-        sails.log.info("Parametros", parametros);
         Pizza
             .find()
-            .where({
-            or: [
-                {
-                    nombrePizza: {
-                        contains: parametros.busqueda
-                    }
-                }
-            ]
-        })
             .exec(function (err, pizzas) {
             if (err)
                 return res.negotiate(err);
             else {
                 return res.view('homepage', {
                     pizzas: pizzas
+                });
+            }
+        });
+    },
+    listarIngredientes: function (req, res) {
+        var parametros = req.allParams();
+        if (!parametros.busqueda) {
+            parametros.busqueda = '';
+        }
+        //let where = {};
+        sails.log.info("Parametros", parametros);
+        Ingredientes
+            .find()
+            .where({
+            or: [
+                {
+                    nombreIngrediente: {
+                        contains: parametros.busqueda
+                    }
+                }
+            ]
+        })
+            .exec(function (err, ingredientes) {
+            if (err)
+                return res.negotiate(err);
+            else {
+                return res.view('homepage', {
+                    ingredientes: ingredientes
                 });
             }
         });
@@ -35,12 +48,13 @@ module.exports = {
                 if (err)
                     return res.negotiate(err);
                 if (!usuarioEncontrado) {
+                    console.log("el usuario no existe");
                     return res.serverError('El usuario no existe');
                 }
                 else {
                     if (parametros.password == usuarioEncontrado.password) {
                         console.log("Estas logeado");
-                        return res.ok('Estas logeado, aqui iria las paginas del administrador');
+                        return res.redirect('/login');
                     }
                     else {
                         return res.serverError("Password Incorrecta");

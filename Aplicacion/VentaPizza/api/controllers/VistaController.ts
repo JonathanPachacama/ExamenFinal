@@ -3,11 +3,26 @@ declare var require;
 declare var sails;
 declare var Pizza;
 declare var Usuario;
+declare var Ingredientes;
 
 module.exports = {
 
 
   homepage: (req, res) => {
+    Pizza
+      .find()
+      .exec((err, pizzas) => {
+        if (err) return res.negotiate(err);
+        else {
+          return res.view('homepage', {
+            pizzas: pizzas
+          });
+        }
+
+      })
+  },
+
+  listarIngredientes: (req, res) => {
 
     let parametros = req.allParams();
     if (!parametros.busqueda) {
@@ -15,21 +30,21 @@ module.exports = {
     }
     //let where = {};
     sails.log.info("Parametros", parametros);
-    Pizza
+    Ingredientes
       .find()
       .where({
         or: [
           {
-            nombrePizza: {
+            nombreIngrediente: {
               contains: parametros.busqueda
             }
           }]
       })
-      .exec((err, pizzas) => {
+      .exec((err, ingredientes) => {
         if (err) return res.negotiate(err);
         else {
           return res.view('homepage', {
-            pizzas: pizzas
+            ingredientes: ingredientes
           });
         }
 
@@ -45,13 +60,14 @@ module.exports = {
         .exec((err, usuarioEncontrado) => {
           if (err)return res.negotiate(err,);
           if (!usuarioEncontrado) {
+            console.log("el usuario no existe")
             return res.serverError('El usuario no existe')
           }
           else{
 
             if(parametros.password==usuarioEncontrado.password){
               console.log("Estas logeado");
-              return res.ok('Estas logeado, aqui iria las paginas del administrador');
+              return res.redirect('/login');
             }else{
               return res.serverError("Password Incorrecta")
             }

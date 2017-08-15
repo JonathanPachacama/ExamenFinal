@@ -1,44 +1,30 @@
-<h2>Pizzas Seleccionada</h2>
-<form action="/">
-  <div class="form-group row">
-    <label for="busqueda" class="col-4 col-form-label">
-      Busque la pizzas que desea
-    </label>
-    <div class="col-4">
-      <input class="form-control" type="text" placeholder="Buscar" id="busqueda"
-             name="busqueda">
 
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <button class="btn btn-success btn-block">Buscar</button>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-</form>
-
-<br>
-<br>
 <div id="contenedor" class="row">
-  <% for(var i=0; i<pizzas.length; i++) {%>
+
+  <% for(var i = 0; i < pizzas.length; i++) { %>
   <div class="card" style="width: 20rem;">
+    <img class="card-img-top" id="ImgenPizza"
+         src="http://libroderecetas.com/files/recetas/la-historia-de-la-pizza-hawaiana.jpg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><%= pizzas[i].nombrePizza %></h4>
+      <p class="card-text"> <%= pizzas[i].ingredientes %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Servicio a domicilio</li>
+      <li class="list-group-item">Ingredientes unicos</li>
+
+    </ul>
     <div class="card-block">
 
-      <h4 class="card-title"><%= pizzas[i].nombrePizza %> </h4>
-      <p class="card-text">
-        <%= pizzas[i].ingredientes %>
-      </p>
-
-
-
-
+      <a href="/ingredientes">
+        <button type="button"  class="btn btn-primary">Ingredientes</button>
+      </a>
 
     </div>
   </div>
+
   <% } %>
+
 </div>
 <br>
 <br>
