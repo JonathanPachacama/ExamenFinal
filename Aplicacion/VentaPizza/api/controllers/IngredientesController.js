@@ -32,6 +32,7 @@ module.exports = {
         sails.log.info("Parametros", parametros);
         var nuevoIngrediente = {
             nombreIngrediente: parametros.nombreIngrediente,
+            idPizza: parametros.idPizza,
         };
         Ingredientes.create(nuevoIngrediente)
             .exec(function (error, nuevoIngrediente) {

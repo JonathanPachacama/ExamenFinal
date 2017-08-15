@@ -44,6 +44,7 @@ module.exports = {
 
       let nuevoIngrediente = {
         nombreIngrediente:parametros.nombreIngrediente,
+        idPizza:parametros.idPizza,
       };
 
       Ingredientes.create(nuevoIngrediente)

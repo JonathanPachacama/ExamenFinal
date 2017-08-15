@@ -1,5 +1,5 @@
 <h2>INSERTAR INGREDIENTE</h2>
-<form action="/">
+<form action="/ingredientes">
   <div class="form-group row">
     <label for="busqueda" class="col-4 col-form-label">
       Busque los ingredientes que desee para acompa;ar a su pizza
@@ -17,28 +17,26 @@
     <div class="col-md-3"></div>
   </div>
 </form>
-
-<br>
 <br>
 <div id="contenedor" class="row">
 
   <% for(var i = 0; i < ingredientes.length; i++) { %>
   <div class="card" style="width: 20rem;">
     <div class="card-block">
-      <h4 class="card-title"><%= ingredientes[i].nombreIngrediente %></h4>
+      <h4 class="card-title" style="color: white"><%= ingredientes[i].nombreIngrediente %></h4>
     </div>
     <div class="card-block">
-      <form action="/Ingredientes/anadirIngrediente" method="post">
+      <form action="/Ingredientes/anadirIngrediente?nombreIngrediente=<%= ingredientes[i].nombreIngrediente%>&idPizza=<%= ingredientes[i].id%>" method="post">
         <input hidden
                type="text"
-               name="id"
-               value="<%= ingredientes[i].id %>">
-        <button type="submit" class="btn btn-primary">Añadir nuevo ingrediente</button>
+               name="idPizza"
+               value="<%= ingredientes[i].idPizza %>">
+        <button type="submit" class="btn btn-warning">Añadir ingrediente</button>
       </form>
     </div>
   </div>
 
   <% } %>
-
+  <br><br>
 </div>
 

@@ -1,35 +1,40 @@
-<br><br>
-<h1>Pizzas</h1>
 <div id="contenedor" class="row">
 
+<br><br>
+<h1 style="color: white">Pizzas</h1>
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
   <% for(var i = 0; i < pizzas.length; i++) { %>
-  <div class="card" style="width: 20rem;">
+  <div class="card" id="card" style="width: 20rem;">
     <img class="card-img-top" id="ImgenPizza"
          src="http://libroderecetas.com/files/recetas/la-historia-de-la-pizza-hawaiana.jpg" alt="Card image cap">
     <div class="card-block">
-      <h4 class="card-title"><%= pizzas[i].nombrePizza %></h4>
-      <p class="card-text"> <%= pizzas[i].ingredientes %></p>
+      <h4 class="card-title" style="color: white"><%= pizzas[i].nombrePizza %></h4>
+
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Servicio a domicilio</li>
-      <li class="list-group-item">Ingredientes unicos</li>
+      <li class="list-group-item">Ingredientes:
+        <p class="card-text"> <%= pizzas[i].ingredientes.nombreIngrediente%></p>
+      </li>
 
     </ul>
     <div class="card-block">
 
-      <a href="/ingredientes">
+      <a href="/ingredientes?id=<%= pizzas[i].id %>">
         <button type="button"  class="btn btn-primary">Ingredientes</button>
       </a>
-
     </div>
   </div>
-
+  <br><br>
   <% } %>
+  </div>
+  <div class="col-sm-4"></div>
 
+  <br>
 </div>
-<br>
-<br>
-<br>
-<br>
+
+
 
 

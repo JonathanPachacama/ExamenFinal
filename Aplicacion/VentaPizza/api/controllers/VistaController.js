@@ -35,7 +35,6 @@ module.exports = {
             });
         }
         else {
-            sails.log('Usuario eliminado');
             return res.view('login');
         }
     },
