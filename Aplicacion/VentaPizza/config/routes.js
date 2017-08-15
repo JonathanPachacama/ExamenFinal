@@ -34,6 +34,11 @@ module.exports.routes = {
 
   'get /': 'VistaController.homepage',
 
+  'get /login':
+    'VistaController.login',
+  '/perfil':{
+    view:'UsuarioGestion/perfil'
+  },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
