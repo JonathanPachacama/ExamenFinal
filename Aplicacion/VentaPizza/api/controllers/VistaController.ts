@@ -22,34 +22,7 @@ module.exports = {
       })
   },
 
-  listarIngredientes: (req, res) => {
 
-    let parametros = req.allParams();
-    if (!parametros.busqueda) {
-      parametros.busqueda = '';
-    }
-    //let where = {};
-    sails.log.info("Parametros", parametros);
-    Ingredientes
-      .find()
-      .where({
-        or: [
-          {
-            nombreIngrediente: {
-              contains: parametros.busqueda
-            }
-          }]
-      })
-      .exec((err, ingredientes) => {
-        if (err) return res.negotiate(err);
-        else {
-          return res.view('homepage', {
-            ingredientes: ingredientes
-          });
-        }
-
-      })
-  },
 
   login: (req, res) => {
 

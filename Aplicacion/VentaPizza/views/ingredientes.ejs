@@ -28,12 +28,12 @@
       <h4 class="card-title"><%= ingredientes[i].nombreIngrediente %></h4>
     </div>
     <div class="card-block">
-      <form action="/Vista/AnadirIngrediente" method="post">
+      <form action="/Ingredientes/anadirIngrediente" method="post">
         <input hidden
                type="text"
                name="id"
                value="<%= ingredientes[i].id %>">
-        <button type="submit" class="btn btn-primary">Añadir nuevo ingredientes</button>
+        <button type="submit" class="btn btn-primary">Añadir nuevo ingrediente</button>
       </form>
     </div>
   </div>

@@ -33,13 +33,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /': 'VistaController.login',
-  'get /ingredientes': 'VistaController.listarIngredientes',
+  'get /login': 'VistaController.homepage' ,
+  'get /ingredientes': 'IngredientesController.listarIngredientes',
 
-  'get /login':
-    'VistaController.homepage' ,
-  '/perfil':{
-    view:'UsuarioGestion/perfil'
-  },
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
